@@ -13,13 +13,20 @@
 
     <!-- Navbar -->
     <nav style="position: fixed; width: 100%;">
-        <div class="menu">
+        <div class="menu" id="menu">
             <a href="#home">HOME</a>
             <a href="#about">ABOUT</a>
             <a href="#contact">CONTACT</a>
         </div>
         <a href="tel:+16314318365" class="phone-number" style="padding-right: 25px;"><img src="imgs/phone.svg" alt="Phone Image" height="16" width="auto"> (631) 431-8365</a>
+        <!-- Hamburger Icon for Mobile -->
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
+
 
 
     <!-- Hero Section (Home) -->
@@ -27,7 +34,6 @@
         <h1>Welcome to LI Tech Guys</h1>
         <img src="imgs/logo.png" alt="LI Tech Guys Logo" height="400" width="auto">
         <p>Your one-stop solution for IT services</p>
-        <a href="#about"><div class="scroll-down"></div></a> <!-- Down Arrow -->
     </section>
 
     <!-- About Section -->
@@ -75,4 +81,25 @@
     </footer>
 
 </body>
+<script>
+    // Function to toggle the menu open/close
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        const hamburger = document.getElementById('hamburger');
+
+        menu.classList.toggle('open'); // Toggle the mobile menu visibility
+        hamburger.classList.toggle('active'); // Toggle the hamburger icon state
+    }
+
+    // Close the menu when any link is clicked
+    document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            const menu = document.getElementById('menu');
+            const hamburger = document.getElementById('hamburger');
+
+            menu.classList.remove('open'); // Close the menu
+            hamburger.classList.remove('active'); // Reset the hamburger icon state
+        });
+    });
+</script>
 </html>
