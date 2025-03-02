@@ -12,19 +12,23 @@
 <body>
 
     <!-- Navbar -->
-    <nav style="position: fixed; width: 100%;">
-        <div class="menu" id="menu">
-            <a href="#home">HOME</a>
-            <a href="#about">ABOUT</a>
-            <a href="#contact">CONTACT</a>
+    <nav>
+        <div class="menu-wrapper">
+            <div class="menu" id="menu">
+                <a href="#home">HOME</a>
+                <a href="#about">ABOUT</a>
+                <a href="#contact">CONTACT</a>
+            </div>
         </div>
-        <a href="tel:+16314318365" class="phone-number" style="padding-right: 25px;"><img src="imgs/phone.svg" alt="Phone Image" height="16" width="auto"> (631) 431-8365</a>
         <!-- Hamburger Icon for Mobile -->
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
+        <a href="tel:+16314318365" class="phone-number">
+            <img src="imgs/phone.svg" alt="Phone Image" height="16" width="auto"> (631) 431-8365
+        </a>
     </nav>
 
     <!-- Hero Section (Home) -->
