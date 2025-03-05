@@ -13,6 +13,9 @@
 
     <!-- Navbar -->
     <nav>
+        <a href="tel:+16314318365" class="phone-number">
+            <img src="imgs/phone.svg" alt="Phone Image" height="16" width="auto"> (631) 431-8365
+        </a>
         <div class="menu-wrapper">
             <div class="menu" id="menu">
                 <a href="#home">HOME</a>
@@ -21,15 +24,19 @@
             </div>
         </div>
         <!-- Hamburger Icon for Mobile -->
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <div id="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
-        <a href="tel:+16314318365" class="phone-number">
-            <img src="imgs/phone.svg" alt="Phone Image" height="16" width="auto"> (631) 431-8365
-        </a>
     </nav>
+
+    <!-- ✅ Mobile Menu (Added Missing Part) -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+    </div>
 
     <!-- Hero Section (Home) -->
     <section id="home">
@@ -48,13 +55,13 @@
             <div class="card" onclick="window.location.href='mailto:jordan@litechguys.com';">
                 <img src="imgs/jordan.png" alt="Jordan Damrau">
                 <h3>Jordan Damrau</h3>
-                <h4>Owner</h4>
+                <h4>Founder</h4>
                 <p>Specializes In: <b>Virus Removal, Computer Repair, Application Support, Data Recovery</b></p>
             </div>
             <div class="card" onclick="window.location.href='mailto:kevin@litechguys.com';">
                 <img src="imgs/kevin.png" alt="Kevin Allen">
                 <h3>Kevin Allen</h3>
-                <h4>Owner</h4>
+                <h4>CTO</h4>
                 <p>Specializes In: <b>Computer Repair, Google Workspace</b></p>
             </div>
         </div>
@@ -81,26 +88,24 @@
         <b><a href="https://www.twitter.com/litechguys">Twitter</a></b>
     </footer>
 
-</body>
-<script>
-    // Function to toggle the menu open/close
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        const hamburger = document.getElementById('hamburger');
+    <!-- ✅ FIXED JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobile-menu");
 
-        menu.classList.toggle('open'); // Toggle the mobile menu visibility
-        hamburger.classList.toggle('active'); // Toggle the hamburger icon state
-    }
+            hamburger.addEventListener("click", function () {
+                mobileMenu.classList.toggle("open");
+            });
 
-    // Close the menu when any link is clicked
-    document.querySelectorAll('.menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            const menu = document.getElementById('menu');
-            const hamburger = document.getElementById('hamburger');
-
-            menu.classList.remove('open'); // Close the menu
-            hamburger.classList.remove('active'); // Reset the hamburger icon state
+            // Close menu when a link is clicked (Mobile Only)
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener("click", function () {
+                    mobileMenu.classList.remove("open");
+                });
+            });
         });
-    });
-</script>
+    </script>
+
+</body>
 </html>
